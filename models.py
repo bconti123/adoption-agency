@@ -15,10 +15,13 @@ class Pet(db.Model):
     id = db.Column(db.Integer, autoincrement=True, primary_key=True)
     name = db.Column(db.Text, nullable=False)
     species = db.Column(db.Text, nullable=False)
-    photo_url = db.Column(db.Text, nullable=False, default=DEFAULT_IMAGE)
+    photo_url = db.Column(db.Text)
     age = db.Column(db.Integer, nullable=False)
     notes = db.Column(db.Text, nullable=False)
     available = db.Column(db.Boolean, nullable=False, default=True)
 
     def __repr__(self):
         return f'Pet {self.id} {self.name} {self.species}' 
+    
+    def image_url(self):
+        return self.photo_url or DEFAULT_IMAGE

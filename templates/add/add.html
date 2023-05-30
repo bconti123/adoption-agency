@@ -6,19 +6,28 @@
 <!-- Content -->
 {% block content %}
 
-  <h1>Adoption</h1>
-  <div class="row justify-content-center"></div>
+<h1 class="display-4 justify-content-center">Adoption</h1>
+<div class="row justify-content-center">
   <form action="/add" method="POST">
     {{ form.hidden_tag() }}
     <!-- add type=hidden -->
     {% for field in form if field.widget.input_type != 'hidden' %}
     <div class="form-group">
-      <p>{{ field.label }} {{ field }}</p>
+      <p>
+        {{ field.label }} {{ field }}
+        <!-- Errors -->
+        {% for err in field.errors %}
+        <!-- Err -->
+        {{err}}
+        <!-- Endfor -->
+        {% endfor %}
+      </p>
     </div>
+
     {% endfor %}
 
     <button class="btn btn-success">Submit</button>
   </form>
-  </div>
+</div>
 
 {% endblock %}
