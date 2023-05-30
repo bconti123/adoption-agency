@@ -24,6 +24,7 @@ db.create_all()
 @app.route('/')
 def home():
     pets = Pet.query.all()
+    
     return render_template("/index.html", pets=pets)
 
 @app.route('/add', methods=['GET', 'POST'])

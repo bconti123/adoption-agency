@@ -12,8 +12,8 @@
   <div class="col-sm">
   <img src="{{ pet.photo_url }}" alt="{{pet.id}}" class="src" height="200px" width="200"/>
   <p>
-    <a href="" class="href">{{pet.name}}</a> {% if pet.available == 'True' %} is
-    available! {% else %} is not available! {% endif %}
+    <a href="" class="href">{{pet.name}}</a> {% if pet.available == "1" %} is
+    available! {% elif pet.available == 'False' %} is not available! {% endif %}
   </p>
   </div>
   {% endfor %}
